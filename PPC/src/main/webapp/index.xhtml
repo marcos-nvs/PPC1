@@ -6,12 +6,13 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-    <f:view    contentType="text/html"  locale="pt_BR" >
-
+    <f:view contentType="text/html"  locale="#{localeBean.currentLanguage}"  >
+        
         <f:loadBundle
-            id="myloadbundleId"
-            basename="br.com.faces.resources"
+            id="myloadbunkygjhffcfhfcc"
+            basename="br.com.faces.res"
             var="msgs"/>
+        
 
         <h:head>
             <link type="text/css" rel="stylesheet" href="css/default.css" />
@@ -19,7 +20,10 @@
 
         </h:head>
         <h:body id="Bodyid">
-
+            
+            <h:outputLabel value="test" />
+            <p:commandButton value="testBtn" />
+            
         </h:body>
     </f:view>
 </html>
