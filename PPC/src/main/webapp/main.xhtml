@@ -18,8 +18,31 @@
             <title>Sistema Controle de Produção</title>
 
         </h:head>
-        <h:body id="Bodyid">
-
+<!--        <h:body id="Bodyid" 
+                style="background-image: url('C:\Users\f31389519880\Desktop\images2.jpg'); background-repeat: repeat-x;">-->
+        <h:body id="Bodyid" >
+            <h:panelGrid style="padding: 15% 0 0 41%">
+                <f:facet name="header">  
+                    Sistema DASA  
+                </f:facet>
+                <h:panelGrid border="1">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Login:" />
+                        <h:inputText/>
+                        <h:outputLabel value="Senha:" />
+                        <h:inputSecret/>
+                    </h:panelGrid>
+                </h:panelGrid>
+                <f:facet name="footer">
+                    <h:panelGrid columns="2" style="padding-left: 12%;">
+                        <p:commandButton type="button" value="Logar" icon="ui-icon-check" />
+                        <p:commandButton type="button" value="Apagar" icon="ui-icon-closethick"/>
+                    </h:panelGrid>
+                    
+                </f:facet>
+            </h:panelGrid>
+            
+            
         </h:body>
     </f:view>
 </html>
