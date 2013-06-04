@@ -47,16 +47,16 @@
                             <h:panelGrid border="1">
                                 <h:panelGrid columns="2">
                                     <h:outputText value="Login: " />
-                                    <p:inputText id="default" required="true" />
+                                    <p:inputText id="inputText1" required="true" value="#{loginViewBean.strLogin}"/>
 
                                     <h:outputText value="Senha: " />
-                                    <p:inputText id="textOnly" required="true" />
+                                    <p:inputText id="inputText2" required="true" value="#{loginViewBean.strSenha}"/>
                                 </h:panelGrid>
                             </h:panelGrid>
                             <f:facet name="footer">
                                 <h:panelGrid columns="2" style="padding-left: 7%;">
                                     <p:commandButton id="submitButton" value="Logar" icon="ui-icon-check" update="grid"/>
-                                    <p:commandButton id="cancelButton" value="Apagar" icon="ui-icon-closethick"/>
+                                    <p:commandButton id="cancelButton" value="Apagar" icon="ui-icon-closethick" update="grid" action="#{loginViewBean.apagaCampos}"/>
                                 </h:panelGrid>
                             </f:facet>
                         </h:panelGrid>
