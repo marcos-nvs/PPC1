@@ -16,23 +16,30 @@
         <h:head>
             <link type="text/css" rel="stylesheet" href="css/default.css" />
             <title>Sistema Controle de Produção</title>
+            <style type="text/css">
+                .ui-widget-content {
+                    border: 1px solid #a8a8a8;
+                    background: transparent;
+                    color: #4f4f4f;
+                }
+            </style>
         </h:head>
         <h:body id="Bodyid" style="background-image: url('img/bgimg.jpg'); background-repeat: repeat-x">
             <h:form id="form" style="font-size: 20px;">
-<!--                <p:layout fullPage="true" >
-                    <p:layoutUnit position="north" resizable="true" size="100">
+                <p:layout fullPage="true" >
+                    <p:layoutUnit position="north" resizable="true" size="100" rendered="false">
 
                     </p:layoutUnit>
-                    <p:layoutUnit position="south">
+                    <p:layoutUnit position="south" rendered="false">
 
                     </p:layoutUnit>
-                    <p:layoutUnit position="west">
+                    <p:layoutUnit position="west" rendered="false">
 
                     </p:layoutUnit>
-                    <p:layoutUnit position="east">
+                    <p:layoutUnit position="east" rendered="false">
 
                     </p:layoutUnit>
-                    <p:layoutUnit position="center">-->
+                    <p:layoutUnit position="center">
                         <h:panelGrid id="grid" style="margin: 15% 0 0 38%;">
                             <f:facet name="header">
                                 DASA
@@ -53,8 +60,8 @@
                                 </h:panelGrid>
                             </f:facet>
                         </h:panelGrid>
-<!--                    </p:layoutUnit>
-                </p:layout>-->
+                    </p:layoutUnit>
+                </p:layout>
             </h:form>  
         </h:body>
     </f:view>
