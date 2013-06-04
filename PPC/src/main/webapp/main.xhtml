@@ -8,52 +8,56 @@
 
     <f:view    contentType="text/html"  locale="pt_BR" >
 
-<!--        <f:loadBundle
-            id="myloadbundleId"
-            basename="resources.messages"
-            var="msgs"/>-->
+        <!--        <f:loadBundle
+                    id="myloadbundleId"
+                    basename="resources.messages"
+                    var="msgs"/>-->
 
         <h:head>
             <link type="text/css" rel="stylesheet" href="css/default.css" />
             <title>Sistema Controle de Produção</title>
         </h:head>
         <h:body id="Bodyid" style="background-image: url('img/bgimg.jpg'); background-repeat: repeat-x">
-<!--            <p:layout fullPage="true" >
-                <p:layoutUnit position="north" resizable="true" size="100">
-                    
-                </p:layoutUnit>
-                <p:layoutUnit position="south">
-                    
-                </p:layoutUnit>
-                <p:layoutUnit position="west">
-                    
-                </p:layoutUnit>
-                <p:layoutUnit position="east">
-                    
-                </p:layoutUnit>
-                <p:layoutUnit position="center">-->
-                    <h:panelGrid style="margin: 15% 0 0 41%;">
-                        <f:facet name="header">  
-                            DASA  
-                        </f:facet>
-                        <h:panelGrid border="1">
-                            <h:panelGrid columns="2">
-                                <h:outputLabel value="Login:" />
-                                <h:inputText/>
-                                <h:outputLabel value="Senha:" />
-                                <h:inputSecret/>
+            <h:form id="form" style="font-size: 20px;">
+<!--                <p:layout fullPage="true" >
+                    <p:layoutUnit position="north" resizable="true" size="100">
+
+                    </p:layoutUnit>
+                    <p:layoutUnit position="south">
+
+                    </p:layoutUnit>
+                    <p:layoutUnit position="west">
+
+                    </p:layoutUnit>
+                    <p:layoutUnit position="east">
+
+                    </p:layoutUnit>
+                    <p:layoutUnit position="center">-->
+                        <h:panelGrid id="grid" style="margin: 15% 0 0 38%;">
+                            <f:facet name="header">
+                                DASA
+                            </f:facet>
+                            <h:panelGrid border="1">
+                                <h:panelGrid columns="2">
+                                    <h:outputText value="Login: " />
+                                    <p:inputText id="default" required="true" />
+
+
+                                    <h:outputText value="Senha: " />
+                                    <p:inputText id="textOnly" required="true" />
+
+                                </h:panelGrid>
                             </h:panelGrid>
+                            <f:facet name="footer">
+                                <h:panelGrid columns="2" style="padding-left: 7%;">
+                                    <p:commandButton id="submitButton" value="Logar" icon="ui-icon-check" update="grid"/>
+                                    <p:commandButton id="cancelButton" value="Apagar" icon="ui-icon-closethick"/>
+                                </h:panelGrid>
+                            </f:facet>
                         </h:panelGrid>
-                        <f:facet name="footer">
-                            <h:panelGrid columns="2" style="padding-left: 9%;">
-                                <p:commandButton type="button" value="Logar" icon="ui-icon-check" />
-                                <p:commandButton type="button" value="Apagar" icon="ui-icon-closethick"/>
-                            </h:panelGrid>
-                        </f:facet>
-                    </h:panelGrid>
-<!--                </p:layoutUnit>
-            </p:layout>-->
-            
+<!--                    </p:layoutUnit>
+                </p:layout>-->
+            </h:form>  
         </h:body>
     </f:view>
 </html>
