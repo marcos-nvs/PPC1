@@ -28,7 +28,17 @@
             <artifactId>oracle-driver</artifactId>
             <version>11.6</version>
         </dependency>
-        
+        <dependency>
+            <groupId>com.github.adrianboimvaser</groupId>
+            <artifactId>postgresql-dist</artifactId>
+            <version>9.2.4</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgres</artifactId>
+            <version>9.1-901.jdbc4</version>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
