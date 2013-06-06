@@ -27,7 +27,7 @@ public class SessionFactoryPostGres implements Serializable{
     public static Session getCurrentSession4Faces(){
         
         if(sessionFactory == null ){
-            System.out.println("Abrindo sessao!!");
+            System.out.println("Construindo sessao!!");
             sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
             return  sessionFactory.openSession();
         }else{

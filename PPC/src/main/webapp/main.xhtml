@@ -22,76 +22,40 @@
                     background: transparent;
                     color: #4f4f4f;
                 }
+                .ui-layout-north {
+                    z-index:20 !important;
+                    overflow:visible !important;
+                }
+
+                .ui-layout-north .ui-layout-unit-content {
+                    overflow:visible !important;
+                }
+                .column1{
+                    width: 7%;
+                }
+                .column2{
+                    width: 70%;
+                }
+                .column3{
+                    width: 23%;
+                }
             </style>
         </h:head>
         <h:body id="Bodyid" style="background-image: url('img/bgimg.jpg'); background-repeat: repeat-x">
             <h:form id="form" >
                 <p:layout fullPage="true" >
-                    <p:layoutUnit position="north" resizable="true" size="45" rendered="true">
-                        <h:panelGrid columns="3" width="100%">
-                            <h:panelGrid width="100%">
-                                <p:graphicImage url="img/dasa.jpg" height="24" />
-                            </h:panelGrid>
-                            <h:panelGrid width="100%" style="font-size: 20px; text-align: center;">
-                                <p:outputLabel value="DASA - Diagnósticos da América S.A."/>
-                            </h:panelGrid>
-                            <h:panelGrid width="100%" columns="2" style="text-align: right;">
-                                <p:outputLabel value="Bem Vindo Fulano"/>
-                                <p:commandLink value="Sair" style="color: red;"/>
-                            </h:panelGrid>
-                        </h:panelGrid>
-
-                    </p:layoutUnit>
-                    <p:layoutUnit position="south" rendered="true" size="35">
-                        <h:panelGrid columns="2" style="font-size: 10px;" width="100%">
-                            <h:panelGrid columns="2">
-                                <h:outputLabel value="Desenvolvido por: "/>
-                                <h:outputLabel value="PPC Informática LTDA." style="color: blue; font-style: italic;"/>
-                            </h:panelGrid>
-                            <h:panelGrid columns="2">
-                                <h:outputLabel value="Versão: "/>
-                                <h:outputLabel value="1.0.1" style="color: red; font-style: italic;"/>
-                            </h:panelGrid>
-
-                        </h:panelGrid>
-                    </p:layoutUnit>
-                    <p:layoutUnit position="west" rendered="false">
-
-                    </p:layoutUnit>
-                    <p:layoutUnit position="east" rendered="false">
-
-                    </p:layoutUnit>
-                    <p:layoutUnit position="center">
-                        <h:panelGrid id="grid" style="margin: 12% 0 0 38%;font-size: 20px;" rendered="false">
-                            <f:facet name="header">
-                                DASA
-                            </f:facet>
-                            <h:panelGrid border="1">
-                                <h:panelGrid columns="2">
-                                    <h:outputText value="Login: " />
-                                    <p:inputText id="inputText1" required="true" value="#{loginViewBean.strLogin}"/>
-
-                                    <h:outputText value="Senha: " />
-                                    <p:password id="inputText2" required="true" value="#{loginViewBean.strSenha}"/>
-                                </h:panelGrid>
-                            </h:panelGrid>
-                            <f:facet name="footer">
-                                <h:panelGrid columns="2" style="padding-left: 7%;">
-                                    <p:commandButton id="submitButton" value="Logar" icon="ui-icon-check" update="grid"/>
-                                    <p:commandButton id="cancelButton" value="Apagar" icon="ui-icon-closethick" update="grid" action="#{loginViewBean.apagaCampos}"/>
-                                </h:panelGrid>
-                            </f:facet>
-                        </h:panelGrid>
-                        <h:panelGrid rendered="true">
+                    <p:layoutUnit position="north" resizable="true" size="54" rendered="#{not empty loginViewBean.usuario}"><!--alterar para logar-->
+                        <h:panelGrid columns="3" width="100%" columnClasses="column1, column2, column3">
+                            <p:graphicImage url="img/logolv.jpg" height="24"/>
                             <p:menubar>
-                                <p:submenu label="File" icon="ui-icon-document">  
-                                    <p:submenu label="New" icon="ui-icon-contact">  
-                                        <p:menuitem value="Project" url="#" />  
-                                        <p:menuitem value="Other" url="#" />  
-                                    </p:submenu>  
-                                    <p:menuitem value="Open" url="#" />  
-                                    <p:separator />  
-                                    <p:menuitem value="Quit" url="#" />  
+                                <p:submenu label="File" icon="ui-icon-document">
+                                    <p:submenu label="New" icon="ui-icon-contact">
+                                        <p:menuitem value="Project" url="#"/>
+                                        <p:menuitem value="Other" url="#"/>
+                                    </p:submenu>
+                                    <p:menuitem value="Open" url="#" />
+                                    <p:separator />
+                                    <p:menuitem value="Quit" url="#" />
                                 </p:submenu>
                                 <p:submenu label="Edit" icon="ui-icon-pencil">  
                                     <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />  
@@ -115,7 +79,88 @@
                                         <p:menuitem value="Delete" icon="ui-icon-close"/>  
                                     </p:submenu>  
                                 </p:submenu>  
+                                <p:submenu label="File" icon="ui-icon-document">
+                                    <p:submenu label="New" icon="ui-icon-contact">
+                                        <p:menuitem value="Project" url="#"/>
+                                        <p:menuitem value="Other" url="#"/>
+                                    </p:submenu>
+                                    <p:menuitem value="Open" url="#" />
+                                    <p:separator />
+                                    <p:menuitem value="Quit" url="#" />
+                                </p:submenu>
+                                <p:submenu label="Edit" icon="ui-icon-pencil">  
+                                    <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />  
+                                    <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />  
+                                </p:submenu>  
+                                <p:submenu label="Help" icon="ui-icon-help">  
+                                    <p:menuitem value="Contents" url="#" />  
+                                    <p:submenu label="Search" icon="ui-icon-search">  
+                                        <p:submenu label="Text">  
+                                            <p:menuitem value="Workspace" url="#" />  
+                                        </p:submenu>  
+                                        <p:menuitem value="File" url="#" />  
+                                    </p:submenu>  
+                                </p:submenu>  
+                                <p:submenu label="Actions" icon="ui-icon-gear">  
+                                    <p:submenu label="Ajax" icon="ui-icon-refresh">  
+                                        <p:menuitem value="Save"  icon="ui-icon-disk" />  
+                                        <p:menuitem value="Update" icon="ui-icon-arrowrefresh-1-w"/>  
+                                    </p:submenu>  
+                                    <p:submenu label="Non-Ajax" icon="ui-icon-newwin">  
+                                        <p:menuitem value="Delete" icon="ui-icon-close"/>  
+                                    </p:submenu>  
+                                </p:submenu>
                             </p:menubar>
+                            <!--                            <h:panelGrid width="100%" style="text-align: left;">
+                                                            <p:outputLabel value="DASA - Diagnósticos da América S.A."/>
+                                                        </h:panelGrid>-->
+                            <h:panelGrid width="100%" columns="2" style="text-align: right;">
+                                <p:outputLabel value="Bem Vindo Fulano"/>
+                                <p:commandLink value="Sair" style="color: red;"/>
+                            </h:panelGrid>
+                        </h:panelGrid>
+                    </p:layoutUnit>
+                    <p:layoutUnit position="south" rendered="true" size="35">
+                        <h:panelGrid columns="2" style="font-size: 10px;" width="100%">
+                            <h:panelGrid columns="2">
+                                <h:outputLabel value="Desenvolvido por: "/>
+                                <h:outputLabel value="PPC Informática LTDA." style="color: blue; font-style: italic;"/>
+                            </h:panelGrid>
+                            <h:panelGrid columns="2">
+                                <h:outputLabel value="Versão: "/>
+                                <h:outputLabel value="1.0.1" style="color: red; font-style: italic;"/>
+                            </h:panelGrid>
+
+                        </h:panelGrid>
+                    </p:layoutUnit>
+                    <p:layoutUnit position="west" rendered="false">
+
+                    </p:layoutUnit>
+                    <p:layoutUnit position="east" rendered="false">
+
+                    </p:layoutUnit>
+                    <p:layoutUnit position="center">
+                        <h:panelGrid id="grid" style="margin: 12% 0 0 38%;font-size: 20px;" rendered="#{empty loginViewBean.usuario}"><!--alterar para logar-->
+                            <f:facet name="header">
+                                DASA
+                            </f:facet>
+                            <h:panelGrid border="1">
+                                <h:panelGrid columns="2">
+                                    <h:outputText value="Login: " />
+                                    <p:inputText id="inputLogin" required="true" value="#{loginViewBean.strLogin}"/>
+
+                                    <h:outputText value="Senha: " />
+                                    <p:password id="inputSenha" required="true" value="#{loginViewBean.strSenha}"/>
+                                </h:panelGrid>
+                            </h:panelGrid>
+                            <f:facet name="footer">
+                                <h:panelGrid columns="2" style="padding-left: 7%;">
+                                    <p:commandButton id="submitButton" value="Logar" icon="ui-icon-check" update="grid, form" action="#{loginViewBean.logar}"/>
+                                    <p:commandButton id="cancelButton" value="Apagar" icon="ui-icon-closethick" update="grid" action="#{loginViewBean.apagaCampos}"/>
+                                </h:panelGrid>
+                            </f:facet>
+                        </h:panelGrid>
+                        <h:panelGrid rendered="#{not empty loginViewBean.usuario}"><!--alterar para logar-->
                             <ui:insert>
                                 asdasfasd
                                 <ui:include src=""/>

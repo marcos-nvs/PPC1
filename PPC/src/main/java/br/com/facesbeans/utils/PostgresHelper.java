@@ -21,7 +21,6 @@ public class PostgresHelper {
         Session session = null;
         Transaction tx = null;
         if (session == null || !session.isOpen()) {
-            System.out.println(".............................");
             return session = SessionFactoryPostGres.getCurrentSession4Faces();
         } else {
             return session;
