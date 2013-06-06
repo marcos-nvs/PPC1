@@ -1,11 +1,10 @@
-
-import br.com.facesbeans.utils.PostgresHelper;
-import br.com.ppc.entities.Usuario;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package br.com.facesbeans.utils;
+
+import br.com.ppc.entities.Usuario;
 
 /**
  *

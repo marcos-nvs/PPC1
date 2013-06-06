@@ -4,8 +4,12 @@
  */
 package br.com.facesbeans.utils;
 
+import br.com.ppc.entities.Usuario;
+import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -16,17 +20,15 @@ public class PostgresHelper {
     public static Session getSessionDude() {
         Session session = null;
         Transaction tx = null;
-
         if (session == null || !session.isOpen()) {
-//            return session = SessionFactoryOracle.getCurrentSession4Faces();
-                        return session = SessionFactoryPostGres.getCurrentSession4Faces();
+            System.out.println(".............................");
+            return session = SessionFactoryPostGres.getCurrentSession4Faces();
         } else {
             return session;
         }
     }
     
     public static Object getObject(Class clazz, String id) {
-
         Session session = getSessionDude();//sessionFactory.getCurrentSession();
         Transaction tx = session.beginTransaction();
 
@@ -44,14 +46,18 @@ public class PostgresHelper {
         return obj;
     }
     
-    public static Object getUsuario(Class clazz, String id) {
+    public static Usuario getUsuario(String id) {
 
         Session session = getSessionDude();//sessionFactory.getCurrentSession();
         Transaction tx = session.beginTransaction();
-
-        Object obj = null;
+        
+        List result = null;
+        Usuario u = null;
+        
         try {
-            obj = session.get(clazz, id);
+            Criteria criteria = session.createCriteria(Usuario.class);
+            criteria.add(Restrictions.eq("strLogin", id));
+            result = criteria.list();
             tx.commit();
             
         } finally {
@@ -60,6 +66,9 @@ public class PostgresHelper {
             }
         }
 
-        return obj;
+        if (result != null && result.size() > 0) {
+            u =  (Usuario) result.get(0);
+        }
+        return u;
     }
 }
