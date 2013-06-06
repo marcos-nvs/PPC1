@@ -13,7 +13,7 @@ import br.com.ppc.entities.Usuario;
  */
 public class Teste {
     public static void main(String[] args) {
-        Usuario u = (Usuario)PostgresHelper.getObject(Usuario.class, "Ricardo");
+        Usuario u = (Usuario)PostgresHelper.getObject(Usuario.class, "ricardo");
         System.out.println(u.getStrLogin());
     }
 }
