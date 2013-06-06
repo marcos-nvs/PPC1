@@ -29,12 +29,6 @@
             <version>11.6</version>
         </dependency>
         <dependency>
-            <groupId>com.github.adrianboimvaser</groupId>
-            <artifactId>postgresql-dist</artifactId>
-            <version>9.2.4</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
             <groupId>postgresql</groupId>
             <artifactId>postgres</artifactId>
             <version>9.1-901.jdbc4</version>
@@ -84,12 +78,6 @@
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>1.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.xml</groupId>
-            <artifactId>jaxb-libs</artifactId>
-            <version>1.0.5</version>
-            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>javax.xml.bind</groupId>
