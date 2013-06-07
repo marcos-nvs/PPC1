@@ -30,6 +30,7 @@ public class LoginView implements Serializable{
         if(u != null){
             return u;
         }
+        System.out.println("Usuario null");
         return null;
     }
     private boolean autenticaSenha(){

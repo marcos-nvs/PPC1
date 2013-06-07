@@ -42,9 +42,10 @@
             </style>
         </h:head>
         <h:body id="Bodyid" style="background-image: url('img/bgimg.jpg'); background-repeat: repeat-x">
-            <h:form id="form" >
-                <p:layout fullPage="true" >
-                    <p:layoutUnit position="north" resizable="true" size="54" rendered="#{not empty loginViewBean.usuario}"><!--alterar para logar-->
+            <!--<h:form id="form" >-->
+            <p:layout id="layout" fullPage="true" >
+                <p:layoutUnit id="layoutNorth" position="north" resizable="true" size="54" rendered="#{not empty loginViewBean.usuario}"><!--alterar para logar-->
+                    <h:form id="formNorth">
                         <h:panelGrid columns="3" width="100%" columnClasses="column1, column2, column3">
                             <p:graphicImage url="img/logolv.jpg" height="24"/>
                             <p:menubar>
@@ -119,8 +120,10 @@
                                 <p:commandLink value="Sair" style="color: red;"/>
                             </h:panelGrid>
                         </h:panelGrid>
-                    </p:layoutUnit>
-                    <p:layoutUnit position="south" rendered="true" size="35">
+                    </h:form>
+                </p:layoutUnit>
+                <p:layoutUnit position="south" rendered="true" size="35">
+                    <h:form id="formSouth">
                         <h:panelGrid columns="2" style="font-size: 10px;" width="100%">
                             <h:panelGrid columns="2">
                                 <h:outputLabel value="Desenvolvido por: "/>
@@ -130,16 +133,19 @@
                                 <h:outputLabel value="Versão: "/>
                                 <h:outputLabel value="1.0.1" style="color: red; font-style: italic;"/>
                             </h:panelGrid>
-
                         </h:panelGrid>
-                    </p:layoutUnit>
-                    <p:layoutUnit position="west" rendered="false">
+                    </h:form>
+                </p:layoutUnit>
 
-                    </p:layoutUnit>
-                    <p:layoutUnit position="east" rendered="false">
+                <p:layoutUnit position="west" rendered="false">
 
-                    </p:layoutUnit>
-                    <p:layoutUnit position="center">
+                </p:layoutUnit>
+                <p:layoutUnit position="east" rendered="false">
+
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <h:form id="formCenter">
                         <h:panelGrid id="grid" style="margin: 12% 0 0 38%;font-size: 20px;" rendered="#{empty loginViewBean.usuario}"><!--alterar para logar-->
                             <f:facet name="header">
                                 DASA
@@ -155,7 +161,7 @@
                             </h:panelGrid>
                             <f:facet name="footer">
                                 <h:panelGrid columns="2" style="padding-left: 7%;">
-                                    <p:commandButton id="submitButton" value="Logar" icon="ui-icon-check" update="grid, form" action="#{loginViewBean.logar}"/>
+                                    <p:commandButton id="submitButton" value="Logar" icon="ui-icon-check" update="grid, formCenter, :layoutNorth" action="#{loginViewBean.logar}"/>
                                     <p:commandButton id="cancelButton" value="Apagar" icon="ui-icon-closethick" update="grid" action="#{loginViewBean.apagaCampos}"/>
                                 </h:panelGrid>
                             </f:facet>
@@ -166,9 +172,11 @@
                                 <ui:include src=""/>
                             </ui:insert>
                         </h:panelGrid>
-                    </p:layoutUnit>
-                </p:layout>
-            </h:form>  
+                    </h:form>
+                </p:layoutUnit>
+
+            </p:layout>
+            <!--</h:form>-->  
         </h:body>
     </f:view>
 </html>
