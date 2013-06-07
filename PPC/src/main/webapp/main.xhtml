@@ -117,7 +117,7 @@
                                                         </h:panelGrid>-->
                             <h:panelGrid width="100%" columns="2" style="text-align: right;">
                                 <p:outputLabel value="Bem Vindo #{loginViewBean.usuario.strLogin}!!"/>
-                                <p:commandLink value="Sair" style="color: red;" action="#{loginViewBean.logout}" update=":layoutNorth, :formCenter" ajax="false"/>
+                                <p:commandLink value="Sair" style="color: red;" actionListener="#{loginViewBean.logout}" update=":layoutNorth, :formCenter" ajax="false"/>
                             </h:panelGrid>
                         </h:panelGrid>
                     </h:form>
@@ -146,7 +146,7 @@
 
                 <p:layoutUnit position="center">
                     <h:form id="formCenter">
-                        <p:growl id="grow" showDetail="true" sticky="true"/>
+                        <p:growl id="grow" showDetail="true" life="2000"/>
                         <h:panelGrid id="grid" style="margin: 12% 0 0 38%;font-size: 20px;" rendered="#{empty loginViewBean.usuario}"><!--alterar para logar-->
                             <f:facet name="header">
                                 DASA

@@ -54,8 +54,8 @@ public class LoginView implements Serializable{
         
     }
     
-    public void logout(){
-        System.out.println("saindo........");
+    public void logout(ActionEvent event){
+        Mensagens.info(event, "Você está saindo", "Vaza!!!");
         usuario = null;
     }
     
