@@ -116,8 +116,8 @@
                                                             <p:outputLabel value="DASA - Diagnósticos da América S.A."/>
                                                         </h:panelGrid>-->
                             <h:panelGrid width="100%" columns="2" style="text-align: right;">
-                                <p:outputLabel value="Bem Vindo Fulano"/>
-                                <p:commandLink value="Sair" style="color: red;"/>
+                                <p:outputLabel value="Bem Vindo #{loginViewBean.usuario.strLogin}!!"/>
+                                <p:commandLink value="Sair" style="color: red;" action="#{loginViewBean.logout}" update=":layoutNorth, :formCenter" ajax="false"/>
                             </h:panelGrid>
                         </h:panelGrid>
                     </h:form>
@@ -146,6 +146,7 @@
 
                 <p:layoutUnit position="center">
                     <h:form id="formCenter">
+                        <p:growl id="grow" showDetail="true" sticky="true"/>
                         <h:panelGrid id="grid" style="margin: 12% 0 0 38%;font-size: 20px;" rendered="#{empty loginViewBean.usuario}"><!--alterar para logar-->
                             <f:facet name="header">
                                 DASA
@@ -160,8 +161,8 @@
                                 </h:panelGrid>
                             </h:panelGrid>
                             <f:facet name="footer">
-                                <h:panelGrid columns="2" style="padding-left: 7%;">
-                                    <p:commandButton id="submitButton" value="Logar" icon="ui-icon-check" update="grid, formCenter " partialSubmit="true" process="@this" action="#{loginViewBean.logar}"/>
+                                <h:panelGrid columns="2" style="padding-left: 8%;">
+                                    <p:commandButton id="submitButton" value="Logar" icon="ui-icon-check" update="grid, formCenter, :layoutNorth" actionListener="#{loginViewBean.login}" ajax="false"/>
                                     <p:commandButton id="cancelButton" value="Apagar" icon="ui-icon-closethick" update="grid" action="#{loginViewBean.apagaCampos}"/>
                                 </h:panelGrid>
                             </f:facet>

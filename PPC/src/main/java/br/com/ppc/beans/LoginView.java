@@ -8,12 +8,15 @@ import br.com.facesbeans.utils.PostgresHelper;
 import br.com.ppc.entities.Usuario;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 /**
  *
  * @author f31389519880
  */
 @ManagedBean(name = "loginViewBean")
+@SessionScoped
 public class LoginView implements Serializable{
     
     private String strLogin;
@@ -27,29 +30,33 @@ public class LoginView implements Serializable{
     
     private Usuario grabUsuario(String strLogin){
         Usuario u = (Usuario) PostgresHelper.getObject(Usuario.class, strLogin);
-        if(u != null){
-            return u;
-        }
-        System.out.println("Usuario null");
-        return null;
+        return u;
     }
-    private boolean autenticaSenha(){
+    
+    private boolean autenticaSenha() {
         Usuario u = grabUsuario(strLogin);
-        if(strSenha.equals(u.getStrSenha())){
-            return true;
-        }else{
-            return false;
+        if (u != null) {
+            if (strSenha.equals(u.getStrSenha())) {
+                return true;
+            } else {
+                return false;
+            }
         }
+        return false;
     }
-    public void logar(){
-        System.out.println("tentando login.......");
+    public void login(ActionEvent event){
         if(autenticaSenha()){
             usuario = grabUsuario(strLogin);
-            System.out.println("logou");
+            Mensagens.info(event, "Você está logado", "Bem Vindo!!!");
         }else{
-            System.out.println("nao logou");
+            Mensagens.warn(event, "Você não logou", "Usuário ou Senha Errada!!");
         }
         
+    }
+    
+    public void logout(){
+        System.out.println("saindo........");
+        usuario = null;
     }
     
     public String getStrLogin() {
@@ -57,7 +64,7 @@ public class LoginView implements Serializable{
     }
 
     public void setStrLogin(String strLogin) {
-        this.strLogin = strLogin;
+        this.strLogin = strLogin.toUpperCase();
     }
 
     public String getStrSenha() {
