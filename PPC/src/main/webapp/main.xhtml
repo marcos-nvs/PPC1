@@ -161,7 +161,7 @@
                             </h:panelGrid>
                             <f:facet name="footer">
                                 <h:panelGrid columns="2" style="padding-left: 7%;">
-                                    <p:commandButton id="submitButton" value="Logar" icon="ui-icon-check" update="grid, formCenter, :layoutNorth" action="#{loginViewBean.logar}"/>
+                                    <p:commandButton id="submitButton" value="Logar" icon="ui-icon-check" update="grid, formCenter " partialSubmit="true" process="@this" action="#{loginViewBean.logar}"/>
                                     <p:commandButton id="cancelButton" value="Apagar" icon="ui-icon-closethick" update="grid" action="#{loginViewBean.apagaCampos}"/>
                                 </h:panelGrid>
                             </f:facet>
