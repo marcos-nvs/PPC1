@@ -21,6 +21,7 @@ public class LoginView implements Serializable{
     
     private String strLogin;
     private String strSenha;
+    private String strLogoTipo = "img/logo.bmp";
     private Usuario usuario;
     
     public void apagaCampos(){
@@ -47,6 +48,7 @@ public class LoginView implements Serializable{
     public void login(ActionEvent event){
         if(autenticaSenha()){
             usuario = grabUsuario(strLogin);
+            selecionaLogotipo();
             Mensagens.info(event, "Você está logado", "Bem Vindo!!!");
         }else{
             Mensagens.warn(event, "Você não logou", "Usuário ou Senha Errada!!");
@@ -57,6 +59,17 @@ public class LoginView implements Serializable{
     public void logout(ActionEvent event){
         Mensagens.info(event, "Você está saindo", "Vaza!!!");
         usuario = null;
+    }
+    
+    private void selecionaLogotipo(){
+        if(usuario.getStrEmpresa().equalsIgnoreCase("omni")){
+            strLogoTipo = "img/logoomn.png";
+        }else if(usuario.getStrEmpresa().equalsIgnoreCase("lavoisier")){
+            strLogoTipo = "img/logolv.jpg";
+        }else{
+            strLogoTipo = "img/logo.bmp";
+        }
+            
     }
     
     public String getStrLogin() {
@@ -81,6 +94,14 @@ public class LoginView implements Serializable{
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public String getStrLogoTipo() {
+        return strLogoTipo;
+    }
+
+    public void setStrLogoTipo(String strLogoTipo) {
+        this.strLogoTipo = strLogoTipo;
     }
     
 }

@@ -47,7 +47,7 @@
                 <p:layoutUnit id="layoutNorth" position="north" resizable="true" size="54" rendered="#{not empty loginViewBean.usuario}"><!--alterar para logar-->
                     <h:form id="formNorth">
                         <h:panelGrid columns="3" width="100%" columnClasses="column1, column2, column3">
-                            <p:graphicImage url="img/logolv.jpg" height="24"/>
+                            <p:graphicImage url="#{loginViewBean.strLogoTipo}" height="24"/>
                             <p:menubar>
                                 <p:submenu label="File" icon="ui-icon-document">
                                     <p:submenu label="New" icon="ui-icon-contact">

@@ -24,7 +24,9 @@ public class Usuario implements Serializable{
     private String strSenha;
     @Column(name = "USU_BL_ATIVO")
     private boolean blAtivo;
-
+    @Column(name = "USU_ST_EMPRESA")
+    private String strEmpresa;//TODO objeto
+    
     public String getStrLogin() {
         return strLogin;
     }
@@ -48,6 +50,13 @@ public class Usuario implements Serializable{
     public void setBlAtivo(boolean blAtivo) {
         this.blAtivo = blAtivo;
     }
-    
+
+    public String getStrEmpresa() {
+        return strEmpresa;
+    }
+
+    public void setStrEmpresa(String strEmpresa) {
+        this.strEmpresa = strEmpresa;
+    }
     
 }
