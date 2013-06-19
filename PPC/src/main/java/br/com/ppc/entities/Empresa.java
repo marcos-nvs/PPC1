@@ -14,7 +14,7 @@ import java.util.List;
 public class Empresa implements Serializable{
     
     private String strNome;
-    private String strEndereço;//TODO objeto
+    private Endereco endereço;//TODO objeto
     private List listPlantas;//TODO objeto
     private List<Usuario> listUsuario;
     private String strLogo;
@@ -27,12 +27,12 @@ public class Empresa implements Serializable{
         this.strNome = strNome;
     }
 
-    public String getStrEndereço() {
-        return strEndereço;
+    public Endereco getEndereço() {
+        return endereço;
     }
 
-    public void setStrEndereço(String strEndereço) {
-        this.strEndereço = strEndereço;
+    public void setEndereço(Endereco endereço) {
+        this.endereço = endereço;
     }
 
     public List getListPlantas() {
